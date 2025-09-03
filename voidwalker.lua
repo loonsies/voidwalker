@@ -156,10 +156,10 @@ local function handleIncomingText(e)
             local playerPos = player.Movement.LocalPosition
             local dirVector = getDirectionVector(currentDirection)
 
-            -- Calculate and store the absolute destination position
+            -- Calculate and store the destination position (Z will be updated in real-time to match player height)
             local destX = playerPos.X + (dirVector.x * currentDistance)
             local destY = playerPos.Y + (dirVector.y * currentDistance)
-            local destZ = playerPos.Z -- same Z level as player, TODO: implement Z level adjustment via a command
+            local destZ = playerPos.Z -- initial Z level, will be updated in real-time
 
             destinationPosition = { X = destX, Y = destY, Z = destZ }
         end
@@ -175,6 +175,9 @@ local function drawVoidwalkerPath()
     if not player then return end
 
     local playerPos = player.Movement.LocalPosition
+
+    -- Update destination Z coordinate to match player's current height
+    destinationPosition.Z = playerPos.Z
 
     -- Calculate distance to destination (ignoring Z/height)
     local deltaX = destinationPosition.X - playerPos.X
@@ -196,7 +199,7 @@ end
 
 -- Read a single byte from a packet.
 local function readByte(packet, offset)
-    return packet:byte(offset + 1) -- +1 because Lua is 1-based
+    return packet:byte(offset + 1)
 end
 
 -- Write a single byte to a packet.
