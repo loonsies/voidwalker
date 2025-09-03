@@ -44,6 +44,7 @@ local function drawUI()
     imgui.PushStyleVar(ImGuiStyleVar_WindowMinSize, { 0, 0 })
 
     local windowFlags = bit.bor(ImGuiWindowFlags_NoTitleBar, ImGuiWindowFlags_AlwaysAutoResize)
+    imgui.SetNextWindowSize({ 0, 0 }, ImGuiCond_FirstUseEver)
     if imgui.Begin('voidwalker', visible, windowFlags) then
         imgui.Text('Direction: ' .. direction[currentDirection])
 
