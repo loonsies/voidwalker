@@ -6,5 +6,5 @@ CAUTION: Ignores heal animation packet if you click on the checkbox. Not recomme
 
 ## Thanks & credits
 
-- [ThornyFFXI](https://github.com/ThornyFFXI) for the drawing functions (from [thotbar](https://github.com/ThornyFFXI/tHotBar))
+- [ThornyFFXI](https://github.com/ThornyFFXI) for the drawing functions (from [scenthound](https://github.com/ThornyFFXI/scenthound))
 
