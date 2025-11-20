@@ -74,8 +74,8 @@ local function drawUI()
 
         imgui.Checkbox('Bypass Heal', bypassHeal)
         imgui.PopStyleVar(5)
-        imgui.End()
     end
+    imgui.End()
 end
 
 
